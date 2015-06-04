@@ -1,0 +1,24 @@
+ {
+    "name": "redkite-labs/redkite-cms-plugins",
+    "description": "Official RedKiteCms plugins",
+    "keywords": ["redkite", "redkite labs", "redkite cms", "cms"],
+    "homepage": "http://redkite-labs.com",
+    "type": "library",
+    "license": "GPL-2.0",
+    "authors": [
+      {
+        "name": "RedKite Labs",
+        "email": "info@redkite-labs.com"
+      }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "redkite-labs/redkitecms-framework": "@dev"
+    },
+    "target-dir": "RedKiteCms",
+    "autoload": {
+        "psr-0": {
+            "RedKiteCms": ""
+        }
+    }
+}
