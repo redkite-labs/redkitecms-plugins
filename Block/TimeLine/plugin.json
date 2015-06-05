@@ -1,0 +1,18 @@
+{
+    "author": "RedKite Labs",
+    "website": "http://redkite-labs.com",
+    "description": "This block handles an html content",
+    "group": "RedKiteCMS",
+    "enabled": "true",
+    "external-javascripts": [
+      "js/rkcms-timeline.js",
+      "js/rkcms-timeline-item.js",
+      "js/rkcms-timeline-empty-item.js"
+    ],
+    "external-stylesheets": [
+      "css/rkcms-timeline.css"
+    ],
+    "external-stylesheets-frontend": [
+      "css/rkcms-timeline.css"
+    ]
+}

@@ -1,0 +1,6 @@
+
+<div class="row text-center">
+{% for child in block.children %}
+    {% include 'AgencyService/Resources/views/Frontend/agencyservice.html.twig' with { "block": child, "index": loop.index } %}
+{% endfor %}
+</div>

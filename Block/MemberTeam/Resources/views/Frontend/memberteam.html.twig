@@ -1,0 +1,12 @@
+{% block body %}
+<div {{ include('RedKiteCms/Resources/views/Block/_block_tags.html.twig') }}>
+    <div class="team-member">
+        {% set child = block.children[0] %}
+        {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
+        <h4>{{ block.member_name }}</h4>
+        <p class="text-muted">{{ block.member_role }}</p>
+        {% set child = block.children[1] %}
+        {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
+    </div>
+</div>
+{% endblock %}

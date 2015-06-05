@@ -1,0 +1,17 @@
+{
+    "author": "RedKite Labs",
+    "website": "http://redkite-labs.com",
+    "description": "This block handles a member item content",
+    "group": "RedKiteCMS",
+    "enabled": "true",
+    "external-javascripts": [
+        "js/rkcms-member-team.js",
+        "js/rkcms-member-team-collection.js"
+    ],
+    "external-stylesheets": [
+        "css/rkcms-member-team.css"
+    ],
+    "external-stylesheets-frontend": [
+      "css/rkcms-member-team.css"
+    ]
+}

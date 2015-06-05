@@ -1,0 +1,1 @@
+{"blocks":[{"slot_name":"logo","name":"block2","type":"Link","custom_tag":"rkcms-link","history_name":"","history":[],"revision":0,"value":"Company name","tags":{"class":"navbar-brand page-scroll","href":"#page-top"},"source":"value: 'Company name'\ntags:\n  class: \"navbar-brand page-scroll\"\n  href: '#page-top'\ntype: Link\n"}],"repeat":"site"}

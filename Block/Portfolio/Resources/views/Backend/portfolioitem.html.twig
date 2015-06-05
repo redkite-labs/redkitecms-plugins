@@ -1,0 +1,67 @@
+{% extends 'RedKiteCms/Resources/views/Block/base_block.html.twig' %}
+
+{% set editor_id = "rkcms-portfolio-item-editor" %}
+
+{% block custom_element %}
+    <script type="text/html" id="rkcms-portfolio-item">
+        <!-- ko component: {
+            name: "rkcms-portfolio-item",
+            params: { block: $data, parent: $parent }
+        } -->
+        <!-- /ko -->
+    </script>
+{% endblock %}
+
+{% block block_element %}
+<div data-bind="dynamicAttr: tags">
+    <a class="portfolio-link" data-bind=" attr : { 'href' : '#portfolioModal' + $index(), 'data-toggle': !$data.parent.is_editing() ? 'modal' : '' } ">
+        <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+                <i data-bind="attr: { class: hover_icon }" ></i>
+            </div>
+        </div>
+        <!-- ko component: {
+                name: "rkcms-image",
+                params: { block: children()[0], parent: $parent }
+            } -->
+        <!-- /ko -->
+    </a>
+    <div class="portfolio-caption">
+        <h4 data-bind="text: title"></h4>
+        <p class="text-muted" data-bind="text: subtitle"></p>
+    </div>
+
+    <div class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4>This page might not be updated!</h4>
+                                <p>At the moment it is not possible to update this information without reloading the page. This alert is not raised when the page is published in production.</p>
+                            </div>
+
+                            <h2 data-bind="text: modal_title"></h2>
+                            <p class="item-intro text-muted" data-bind="text: modal_description"></p>
+                            {% if block.children.1 is defined %}
+                                {% set child = block.children[1] %}
+                                {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
+                            {% endif %}
+                            <div data-bind="text: modal_body"></div>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% set item = index|default(1) %}
+<div {{ include('RedKiteCms/Resources/views/Block/_block_tags.html.twig') }}>
+    <a href="#portfolioModal{{ item }}" class="portfolio-link" data-toggle="modal">
+        <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+                <i class="{{ block.hover_icon }}" ></i>
+            </div>
+        </div>
+        {% if block.children.0 is defined %}
+        {% set child = block.children[0] %}
+        {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
+        {% endif %}
+    </a>
+    <div class="portfolio-caption">
+        <h4>{{ block.title }}</h4>
+        <p class="text-muted">{{ block.subtitle }}</p>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ item }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>{{ block.modal_title }}</h2>
+                            <p class="item-intro text-muted">{{ block.modal_description }}</p>
+                            {% if block.children.1 is defined %}
+                            {% set child = block.children[1] %}
+                            {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
+                            {% endif %}
+                            <div>
+                            {{ block.modal_body }}
+                            </div>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

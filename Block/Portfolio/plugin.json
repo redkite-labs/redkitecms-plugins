@@ -1,0 +1,21 @@
+{
+    "author": "RedKite Labs",
+    "website": "http://redkite-labs.com",
+    "description": "This block handles an html content",
+    "group": "RedKiteCMS",
+    "enabled": "true",
+    "external-javascripts": [
+      "js/rkcms-portfolio.js",
+      "js/rkcms-portfolio-item.js",
+      "js/rkcms-portfolio-workaround.js"
+    ],
+    "external-stylesheets": [
+      "css/rkcms-portfolio.css"
+    ],
+    "external-stylesheets-frontend": [
+      "css/rkcms-portfolio.css"
+    ],
+    "external-javascripts-frontend": [
+      "js/rkcms-portfolio-workaround-frontend.js"
+    ]
+}

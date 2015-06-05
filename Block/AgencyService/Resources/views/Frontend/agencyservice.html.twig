@@ -1,0 +1,13 @@
+
+<div {{ include('RedKiteCms/Resources/views/Block/_block_tags.html.twig') }}>
+    {% if block.children.0 is defined %}
+    {% set child = block.children[0] %}
+    {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
+    {% endif %}
+    <h4 class="service-heading">
+        {{ block.service_title }}
+    </h4>
+    <p class="text-muted">
+        {{ block.service_description }}
+    </p>
+</diV>

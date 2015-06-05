@@ -1,0 +1,19 @@
+{% extends 'RedKiteCms/Resources/views/Block/base_block.html.twig' %}
+
+{% set editor_id = "rkcms-timeline-empty-item-editor" %}
+
+{% block custom_element %}
+    <script type="text/html" id="rkcms-timeline-empty-item">
+        <!-- ko component: {
+            name: "rkcms-timeline-empty-item",
+            params: { block: $data, parent: $parent }
+        } -->
+        <!-- /ko -->
+    </script>
+{% endblock %}
+
+{% block block_element %}
+    <div class="timeline-image">
+        <h4 data-bind="html: body"></h4>
+    </div>
+{% endblock %}

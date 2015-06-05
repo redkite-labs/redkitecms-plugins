@@ -1,0 +1,31 @@
+{% extends 'RedKiteCms/Resources/views/Block/base_block.html.twig' %}
+
+{% set editor_id = "rkcms-agency-service-editor" %}
+
+{% block custom_element %}
+    <script type="text/html" id="rkcms-agency-service">
+        <!-- ko component: {
+            name: "rkcms-agency-service",
+            params: { block: $data, parent: $parent }
+        } -->
+        <!-- /ko -->
+    </script>
+{% endblock %}
+
+{% block block_element %}
+    <div data-bind="element: target, dynamicAttr: tags, event: { mouseenter: highlight, mouseleave: hide }, attr: {  'data-type': type, 'data-name': name, 'data-slot-name': slotName}, click: startBlockEditing" >
+        <!-- ko component: {
+            name: "rkcms-icon-stacked",
+            params: { block: children()[0], parent: $parent }
+        } -->
+        <!-- /ko -->
+        <h4 class="service-heading" data-bind="text: service_title"></h4>
+        <p class="text-muted" data-bind="text: service_description"></p>
+    </div>
+{% endblock %}
+    
+{% block block_editor_title %}
+    {{ 'html_editor_title'|trans({}, 'RedKiteCms', cms_language) }}
+{% endblock %}
+
+{% block block_editor_toolbar %}{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'RedKiteCms/Resources/views/Block/base_block.html.twig' %}
+
+{% set editor_id = "rkcms-timeline-item-editor" %}
+
+{% block custom_element %}
+    <script type="text/html" id="rkcms-timeline-item">
+        <!-- ko component: {
+            name: "rkcms-timeline-item",
+            params: { block: $data, parent: $parent }
+        } -->
+        <!-- /ko -->
+    </script>
+{% endblock %}
+
+{% block block_element %}
+    <div class="timeline-image">
+        <!-- ko component: {
+                name: "rkcms-image",
+                params: { block: children()[0], parent: $parent }
+            } -->
+        <!-- /ko -->
+    </div>
+    <div class="timeline-panel">
+        <div class="timeline-heading">
+            <h4 data-bind="text: year"></h4>
+            <h4 class="subheading" data-bind="text: subtitle"></h4>
+        </div>
+        <div class="timeline-body">
+            <p class="text-muted" data-bind="text: body"></p>
+        </div>
+    </div>
+{% endblock %}
+    
+{% block block_editor_title %}
+    {{ 'html_editor_title'|trans({}, 'RedKiteCms', cms_language) }}
+{% endblock %}
+
+{% block block_editor_toolbar %}{% endblock %}

@@ -1,0 +1,12 @@
+{% block body %}
+<ul {{ include('RedKiteCms/Resources/views/Block/_block_tags.html.twig') }}>
+{% for child in block.children %}
+    {% if child.type == "TimeLineItem" %}
+    <li class=" {{ cycle(['', 'timeline-inverted'], loop.index0) }}">{% include 'TimeLine/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}</li>
+    {% endif %}
+    {% if child.type == "TimeLineEmptyItem" %}
+        <li class="timeline-inverted">{% include 'TimeLine/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endblock %}

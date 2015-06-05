@@ -1,0 +1,16 @@
+{% block body %}
+<div class="timeline-image">
+    {% for child in block.children %}
+    {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
+    {% endfor %}
+</div>
+<div class="timeline-panel">
+    <div class="timeline-heading">
+        <h4>{{ block.year }}</h4>
+        <h4 class="subheading">{{ block.subtitle }}</h4>
+    </div>
+    <div class="timeline-body">
+        <p class="text-muted">{{ block.body }}</p>
+    </div>
+</div>
+{% endblock %}

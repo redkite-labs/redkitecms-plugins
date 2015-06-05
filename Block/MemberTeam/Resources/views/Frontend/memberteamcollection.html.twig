@@ -1,0 +1,5 @@
+<div class="row">
+{% for child in block.children %}
+    {% include 'MemberTeam/Resources/views/Frontend/memberteam.html.twig' with { "block": child, "index": loop.index } %}
+{% endfor %}
+</div>

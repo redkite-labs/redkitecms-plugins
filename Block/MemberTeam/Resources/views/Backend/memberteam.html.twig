@@ -1,0 +1,40 @@
+{% extends 'RedKiteCms/Resources/views/Block/base_block.html.twig' %}
+
+{% set editor_id = "rkcms-member-team-editor" %}
+
+{% block custom_element %}
+    <script type="text/html" id="rkcms-member-team">
+        <!-- ko component: {
+            name: "rkcms-member-team",
+            params: { block: $data, parent: $parent }
+        } -->
+        <!-- /ko -->
+    </script>
+{% endblock %}
+
+{% block block_element %}
+    <div class="rkcms-block" data-bind="element: target, event: { mouseenter: highlight, mouseleave: hide }, attr: {  'data-type': type, 'data-name': name, 'data-slot-name': slotName}, click: startBlockEditing" >
+        <div data-bind="dynamicAttr: tags">
+            <div class="team-member">
+                <!-- ko component: {
+                        name: "rkcms-image",
+                        params: { block: $data.children()[0], parent: $parent }
+                    } -->
+                <!-- /ko -->
+                <h4 data-bind="text: member_name"></h4>
+                <p class="text-muted" data-bind="text: member_role"></p>
+                <!-- ko component: {
+                        name: "rkcms-menu",
+                        params: { block: $data.children()[1], parent: $parent }
+                    } -->
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    
+{% block block_editor_title %}
+    {{ 'html_editor_title'|trans({}, 'RedKiteCms', cms_language) }}
+{% endblock %}
+
+{% block block_editor_toolbar %}{% endblock %}

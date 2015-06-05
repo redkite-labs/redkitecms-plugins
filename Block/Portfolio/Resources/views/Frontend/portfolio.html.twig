@@ -1,0 +1,9 @@
+{% block body %}
+<div id="portfolio-items" class="row">
+{% for child in block.children %}
+    {% include 'Portfolio/Resources/views/Frontend/portfolioitem.html.twig' with { "block": child, "index": loop.index } %}
+
+{% endfor %}
+</div>
+<div id="porfolio-modals"></div>
+{% endblock %}

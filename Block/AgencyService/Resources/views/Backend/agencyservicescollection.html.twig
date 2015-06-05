@@ -1,0 +1,23 @@
+{% extends 'RedKiteCms/Resources/views/Block/base_block.html.twig' %}
+
+{% set editor_id = "rkcms-agency-services-collection-editor" %}
+
+{% block custom_element %}
+    <script type="text/html" id="rkcms-agency-services-collection">
+        <!-- ko component: {
+            name: "rkcms-agency-services-collection",
+            params: { block: $data, parent: $parent }
+        } -->
+        <!-- /ko -->
+    </script>
+{% endblock %}
+
+{% block block_element %}
+<div class="row text-center rkcms-block" data-bind="foreach: children, element: target, event: { mouseenter: highlight, mouseleave: hide }, attr: {  'data-type': type, 'data-name': name, 'data-slot-name': slotName}, click: startBlockEditing" >
+    <!-- ko component: {
+        name: "rkcms-agency-service",
+        params: { block: $data, parent: $parent }
+    } -->
+    <!-- /ko -->
+</div>
+{% endblock %}
