@@ -51,10 +51,11 @@
 
                             <h2 data-bind="text: modal_title"></h2>
                             <p class="item-intro text-muted" data-bind="text: modal_description"></p>
-                            {% if block.children.1 is defined %}
-                                {% set child = block.children[1] %}
-                                {% include child.type ~ '/Resources/views/Frontend/' ~ child.type|lower ~ '.html.twig' with{"block": child} %}
-                            {% endif %}
+                            <!-- ko component: {
+                                name: "rkcms-image",
+                                params: { block: children()[1], parent: $parent }
+                            } -->
+                            <!-- /ko -->
                             <div data-bind="text: modal_body"></div>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
                         </div>
